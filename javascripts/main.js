@@ -1,6 +1,7 @@
 function getIngredients(full_name)
 {
   foods = ["coco", "cenoura", "repolho", "casca"];
+  document.getElementById("ingredients").innerHTML = "";
   good_foods = [];
 
   for (i = 0; i < foods.length; i++)
