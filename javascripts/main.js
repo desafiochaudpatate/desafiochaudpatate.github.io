@@ -6,7 +6,7 @@ function getIngredients(full_name)
   for (i = 0; i < foods.length; i++)
   {
     food = foods[i];
-    used_letters = Array.apply(null, Array(full_name.length).map(Number.prototype.valueOf,0);
+    used_letters = Array.apply(null, Array(full_name.length).map(Number.prototype.valueOf,0));
     rotten = 0;
     for (j = 0; j < food.length; j++)
     {
