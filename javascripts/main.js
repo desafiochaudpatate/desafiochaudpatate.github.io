@@ -1,10 +1,12 @@
 function handleQueryResponse2(response) {
+      alert('handling');
       if (response.isError()) {
         alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
         return;
       }
     
       var data = response.getDataTable();
+      alert(data);
       visualization = new google.visualization.Table(document.getElementById('preview'));
       visualization.draw(data, null);
   }
