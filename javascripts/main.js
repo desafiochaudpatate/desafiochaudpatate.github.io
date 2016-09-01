@@ -1,3 +1,5 @@
+foods = [];
+
 function handleQueryResponse(response)
 {
   if (response.isError()) {
@@ -6,8 +8,9 @@ function handleQueryResponse(response)
   }
   
   var data = response.getDataTable();
-  visualization = new google.visualization.Table(document.getElementById('ingredients'));
-  visualization.draw(data, null);
+  foods = data.getDistinctValues(0);
+  //visualization = new google.visualization.Table(document.getElementById('ingredients'));
+  //visualization.draw(data, null);
 }
 
 function getIngredients(full_name)
