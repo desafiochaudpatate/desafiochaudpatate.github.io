@@ -7,7 +7,7 @@ function handleQueryResponse2(response) {
     
       var data = response.getDataTable();
       alert(data);
-      visualization = new google.visualization.Table(document.getElementById('preview'));
+      visualization = new google.visualization.Table(document.getElementById('ingredients'));
       visualization.draw(data, null);
   }
   
