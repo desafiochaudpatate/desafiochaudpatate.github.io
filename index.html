@@ -14,7 +14,6 @@
     <script src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
       google.charts.load('current', {packages: ['corechart', 'table']});
-      google.charts.setOnLoadCallback(onLoadCallback);
       
       function handleQueryResponse2(response)
       {
@@ -28,24 +27,7 @@
         alert(data);
         visualization = new google.visualization.Table(document.getElementById('ingredients'));
         visualization.draw(data, null);
-    }
-  
-    function onLoadCallback()
-    {
-      // Define the chart to be drawn.
-      var data = new google.visualization.DataTable();
-      data.addColumn('string', 'Element');
-      data.addColumn('number', 'Percentage');
-      data.addRows([
-        ['Nitrogen', 0.78],
-        ['Oxygen', 0.21],
-        ['Other', 0.01]
-      ]);
-
-      // Instantiate and draw the chart.
-      var chart = new google.visualization.PieChart(document.getElementById('ingredients'));
-      chart.draw(data, null);
-    }
+      }
     
     function getIngredients(full_name)
     {
