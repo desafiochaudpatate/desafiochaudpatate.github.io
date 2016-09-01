@@ -26,8 +26,8 @@ function onLoadCallback()
       // Instantiate and draw the chart.
       var chart = new google.visualization.PieChart(document.getElementById('ingredients'));
       chart.draw(data, null);
-    }
 }
+
 function getIngredients(full_name)
 {
   //foods = ["coco", "cenoura", "repolho", "pão", "massa", "cereal", "gordura", "vegano", "vegana", "vegetariano", "vegetariana", "pancs", "rosa", "mandioca", "carne", "tâmara", "doce", "marisco", "tomate", "damasco", "nectarina", "erva-doce", "codorna", "doce", "vaca", "mate", "anis", "amora", "menta", "osso", "risoto", "ova", "ovo", "torta", "caviar", "morno", "cookie", "cheesecake", "tacos", "amido", "endro", "mostarda", "cítrico", "mandarina", "assado", "carneiro", "cordeiro", "ovelha", "pizza", "acre", "nata", "amêndoa", "aveia", "coca", "coca-cola", "ostra", "ricota", "vietnã", "vieira", "camarão", "corada", "corado", "iogurte", "síria", "canadá", "mel", "melado", "melada", "coentro", "arder", "pimenta", "chá", "especiaria", "índia", "cone", "purê", "maçã", "carolina", "profiterole", "negro", "preto", "sal", "cru", "aro", "coral", "licor", "pinot", "suco", "pasta", "copa", "pato", "prato", "sopa", "pé", "óleo", "lata", "canola", "louro", "praia", "cortar", "canela", "pote", "rolo", "cuia", "risole", "pera", "picles", "aipo", "panceta", "jabuticaba", "panc", "polenta", "naan", "calor", "seco", "porco", "torrar", "porto", "sagu", "roma", "romã", "rosca", "amendoim", "manjericão", "pesto", "cru", "isca", "nigéria", "rã", "guaco", "arruda", "grécia", "rússia", "sugar", "siri", "caranguejo", "pimenta", "orégano", "suécia", "regar", "cupim", "aipim", "mali", "estados unidos", "panela", "faca", "frio", "fogo", "madalena", "mandolim", "cifão", "anel", "liso", "lisa", "azul", "anil"];
