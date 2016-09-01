@@ -1,4 +1,5 @@
 foods = [];
+//TODO: getIngredients should only call the db; handleQueryResponse will call a third method to go through the arrays and return the good_foods to the page
 
 function handleQueryResponse(response)
 {
