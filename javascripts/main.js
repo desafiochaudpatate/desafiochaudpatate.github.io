@@ -4,7 +4,6 @@ fullName = "";
 function handleQueryResponse(response)
 {
   //TODO: lose the first result of each column (title)
-  //TODO: disregard "null"
   if (response.isError()) {
     alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
     return;
@@ -40,6 +39,10 @@ function getGoodFoods()
   for (i = 0; i < foods.length; i++)
   {
     food = foods[i];
+    if (food == null)
+    {
+      continue;
+    }
     used_letters = [];
     rotten = 0;
     for (j = 0; j < food.length; j++)
