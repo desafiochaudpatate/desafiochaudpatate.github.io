@@ -25,7 +25,7 @@ function getIngredients(full_name)
   //var url='https://docs.google.com/spreadsheets/d/1rgFHL4Mxkio-l5mcI8kDtn8k5QzmOs2MG-0g58N3j5I/gviz/tq?tq=select+A'
   var url='https://docs.google.com/spreadsheets/d/1rgFHL4Mxkio-l5mcI8kDtn8k5QzmOs2MG-0g58N3j5I'
   var query = new google.visualization.Query(url);
-  query.setQuery('select B, C');
+  query.setQuery('select instrumentos, frutas');
   query.send(handleQueryResponse);
 }
 
