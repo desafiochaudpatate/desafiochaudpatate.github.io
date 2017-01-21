@@ -14,6 +14,7 @@ function handleQueryResponse(response)
   for (i = 0; i < data.getNumberOfColumns(); i++) {
     foods.push.apply(foods, data.getDistinctValues(i));
   }
+  //TODO: remove duplicates in the foods array
   getGoodFoods();
 }
 
