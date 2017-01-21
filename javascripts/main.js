@@ -12,7 +12,7 @@ function handleQueryResponse(response)
   var data = response.getDataTable();
   data.removeRow(0);
   for (i = 0; i < data.getNumberOfColumns(); i++) {
-    foods.concat(data.getDistinctValues(i));
+    foods.push.apply(foods, data.getDistinctValues(i));
   }
   getGoodFoods();
 }
