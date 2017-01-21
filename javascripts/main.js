@@ -10,7 +10,10 @@ function handleQueryResponse(response)
   }
   
   var data = response.getDataTable();
-  foods = data.getDistinctValues(0);
+  data.removeRow(0);
+  for (i = 0; i < data.getNumberOfColumns(); i++) {
+    foods.concat(data.getDistinctValues(i));
+  }
   getGoodFoods();
 }
 
@@ -25,7 +28,7 @@ function getIngredients(full_name)
   //var url='https://docs.google.com/spreadsheets/d/1rgFHL4Mxkio-l5mcI8kDtn8k5QzmOs2MG-0g58N3j5I/gviz/tq?tq=select+A'
   var url='https://docs.google.com/spreadsheets/d/1rgFHL4Mxkio-l5mcI8kDtn8k5QzmOs2MG-0g58N3j5I/gviz/tq'
   var query = new google.visualization.Query(url);
-  query.setQuery('select B, C');
+  query.setQuery('select *');
   query.send(handleQueryResponse);
 }
 
