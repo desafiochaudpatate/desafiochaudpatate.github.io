@@ -10,6 +10,7 @@ function handleQueryResponse(response)
   
   foods = []; //clear global variable
   var data = response.getDataTable();
+  label0 = data.getColumnLabel(0);
   data.removeRow(0); //lose the first row (titles)
   for (i = 0; i < data.getNumberOfColumns(); i++) {
     foods.push.apply(foods, data.getDistinctValues(i));
