@@ -95,7 +95,7 @@ function getGoodFoods()
       key:   header,
       value: good_foods
     });
-    document.getElementById("ingredients").innerHTML += "<div><p style='font-weight: bold;'>" + header + "</p>" + foods_html + "</div>"; //create new div
+    document.getElementById("ingredients").innerHTML += "<div style='display:inline-block;'><p style='font-weight: bold;'>" + header + "</p>" + foods_html + "</div>"; //create new div
   }
   
   return all_good_foods;
