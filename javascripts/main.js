@@ -49,7 +49,7 @@ function getGoodFoods()
   {
     document.getElementById("ingredients").innerHTML += "<div>"; //create new div
     header = foodsTable.getValue(0, col);
-    document.getElementById("ingredients").innerHTML += "<p style='font-weight: bold;'" + header + "</p>"; //include header in bold
+    document.getElementById("ingredients").innerHTML += "<p style='font-weight: bold;'>" + header + "</p>"; //include header in bold
     foods = foodsTable.getDistinctValues(col);
     good_foods = []
     for (i = 1; i < foods.length; i++)
