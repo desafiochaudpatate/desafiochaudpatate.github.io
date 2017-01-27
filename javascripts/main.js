@@ -1,4 +1,5 @@
-foods = [];
+//foods = [];
+foodsTable = new google.visualization.DataTable();
 fullName = "";
 
 function handleQueryResponse(response)
@@ -8,13 +9,14 @@ function handleQueryResponse(response)
     return;
   }
   
-  foods = []; //clear global variable
+  //foods = []; //clear global variable
+  //foodsTable = new google.visualization.DataTable();
   var data = response.getDataTable();
-  label0 = data.getColumnLabel(0);
-  data.removeRow(0); //lose the first row (titles)
-  for (i = 0; i < data.getNumberOfColumns(); i++) {
-    foods.push.apply(foods, data.getDistinctValues(i));
-  }
+  foodsTable = data;
+  //data.removeRow(0); //lose the first row (titles)
+  //for (i = 0; i < data.getNumberOfColumns(); i++) {
+  //  foods.push.apply(foods, data.getDistinctValues(i));
+  //}
   //TODO: remove duplicates in the foods array
   getGoodFoods();
 }
@@ -39,48 +41,60 @@ function getGoodFoods()
   //spices, diet types, textures, shapes, kitchen tools
   //TODO: crawl the web (maybe wikipedia is enough?) getting food descriptions and model the documents to get only food-related words
   document.getElementById("ingredients").innerHTML = "";
-  good_foods = [];
-
-  for (i = 0; i < foods.length; i++)
+  all_good_foods = [];
+  
+  num_cols = foodsTable.getNumberOfColumns();
+  
+  for (col = 0; col < num_cols; col++)
   {
-    food = foods[i];
-    if (food == null)
+    header = foodsTable.getValue(0, col);
+    foods = data.getDistinctValues(col);
+    good_foods = []
+    for (i = 1; i < foods.length; i++)
     {
-      continue;
-    }
-    food = accent_fold(food).toLowerCase();
-    used_letters = [];
-    rotten = 0;
-    for (j = 0; j < food.length; j++)
-    {
-      letter = food[j];
-      okay = 0;
-      subname = fullName;
-      while (subname.indexOf(letter) > -1)
+      food = foods[i];
+      if (food == null)
       {
-        where = subname.indexOf(letter);
-        if (used_letters[where] == 1)
+        continue;
+      }
+      food = accent_fold(food).toLowerCase();
+      used_letters = [];
+      rotten = 0;
+      for (j = 0; j < food.length; j++)
+      {
+        letter = food[j];
+        okay = 0;
+        subname = fullName;
+        while (subname.indexOf(letter) > -1)
         {
-          subname = subname.slice(where+1);
+          where = subname.indexOf(letter);
+          if (used_letters[where] == 1)
+          {
+            subname = subname.slice(where+1);
+          }
+          else
+          {
+            used_letters[where] = 1;
+            okay = 1;
+            break;
+          }
         }
-        else
+        if (!okay)
         {
-          used_letters[where] = 1;
-          okay = 1;
-          break;
+          rotten = 1;
         }
       }
-      if (!okay)
+      if (!rotten)
       {
-        rotten = 1;
+        good_foods.push(foods[i]);
+        document.getElementById("ingredients").innerHTML += foods[i] + " ";
       }
     }
-    if (!rotten)
-    {
-      good_foods.push(foods[i]);
-      document.getElementById("ingredients").innerHTML += foods[i] + " ";
-    }
+    all_good_foods.push({
+      key:   header,
+      value: good_foods
+    });
   }
   
-  return good_foods;
+  return all_good_foods;
 }
