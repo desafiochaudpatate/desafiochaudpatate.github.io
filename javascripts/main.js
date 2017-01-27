@@ -9,15 +9,8 @@ function handleQueryResponse(response)
     return;
   }
   
-  //foods = []; //clear global variable
-  //foodsTable = new google.visualization.DataTable();
   var data = response.getDataTable();
   foodsTable = data;
-  //data.removeRow(0); //lose the first row (titles)
-  //for (i = 0; i < data.getNumberOfColumns(); i++) {
-  //  foods.push.apply(foods, data.getDistinctValues(i));
-  //}
-  //TODO: remove duplicates in the foods array
   getGoodFoods();
 }
 
@@ -40,6 +33,7 @@ function getGoodFoods()
   //TODO: add following word groups to the list: fruits and vegetables, plates, edible animals, countries, colors, edible fungi,
   //spices, diet types, textures, shapes, kitchen tools
   //TODO: crawl the web (maybe wikipedia is enough?) getting food descriptions and model the documents to get only food-related words
+  //TODO: disregard space character in ingredient names
   document.getElementById("ingredients").innerHTML = "";
   all_good_foods = [];
   
