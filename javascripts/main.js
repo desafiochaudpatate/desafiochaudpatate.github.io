@@ -89,7 +89,7 @@ function getGoodFoods()
       if (!rotten)
       {
         good_foods.push(foods[i]);
-        document.getElementById("ingredients").innerHTML += foods[i] + "<br/";
+        document.getElementById("ingredients").innerHTML += foods[i] + "<br/>";
       }
     }
     all_good_foods.push({
