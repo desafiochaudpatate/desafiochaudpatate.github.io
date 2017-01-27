@@ -1,5 +1,5 @@
 //foods = [];
-foodsTable = new google.visualization.DataTable();
+//foodsTable = new object();
 fullName = "";
 
 function handleQueryResponse(response)
