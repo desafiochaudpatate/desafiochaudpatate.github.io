@@ -47,11 +47,10 @@ function getGoodFoods()
   
   for (col = 0; col < num_cols; col++)
   {
-    document.getElementById("ingredients").innerHTML += "<div>"; //create new div
     header = foodsTable.getValue(0, col);
-    document.getElementById("ingredients").innerHTML += "<p style='font-weight: bold;'>" + header + "</p>"; //include header in bold
     foods = foodsTable.getDistinctValues(col);
     good_foods = []
+    foods_html = ""
     for (i = 1; i < foods.length; i++)
     {
       food = foods[i];
@@ -89,14 +88,14 @@ function getGoodFoods()
       if (!rotten)
       {
         good_foods.push(foods[i]);
-        document.getElementById("ingredients").innerHTML += foods[i] + "<br/>";
+        foods_html += foods[i] + "<br/>";
       }
     }
     all_good_foods.push({
       key:   header,
       value: good_foods
     });
-    document.getElementById("ingredients").innerHTML += "</div>"; //close div
+    document.getElementById("ingredients").innerHTML += "<div><p style='font-weight: bold;'>" + header + "</p>" + foods_html + "</div>"; //create new div
   }
   
   return all_good_foods;
